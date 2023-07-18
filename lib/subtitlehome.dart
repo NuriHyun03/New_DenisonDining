@@ -17,7 +17,7 @@ class SubTitleHome extends StatelessWidget {
       child: Text(
         stitle,
         textAlign: TextAlign.left,
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: 'Lora',
           fontWeight: FontWeight.bold,
           fontSize: 15,

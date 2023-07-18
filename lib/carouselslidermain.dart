@@ -70,9 +70,9 @@ class _CarouselSilderMainState extends State<CarouselSilderMain> {
             builder: (BuildContext context3) {
               return Container(
                   width: MediaQuery.of(context3).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration:
-                      BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 255, 255, 255)),
                   child: Image.network(value[i].toString())); // get ith image
             },
           );
@@ -106,9 +106,9 @@ class SliderWithNoImage extends StatelessWidget {
             builder: (BuildContext context4) {
               return Container(
                   width: MediaQuery.of(context4).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(color: Colors.amber),
-                  child: Text(
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: const BoxDecoration(color: Colors.amber),
+                  child: const Text(
                     'No image',
                     style: TextStyle(fontSize: 16.0),
                   ));
