@@ -10,7 +10,10 @@ class HomeButton extends StatelessWidget {
   final String buttonimage;
 
   /// Subtitle of the Button
-  final String buttonsubtitle;
+  //final String buttonsubtitle;
+
+  /// Open and closed status
+  final Color restaurantStatus;
 
   /// Link to corresponding website that will be connected to webView widget.
   /// Should be correct full - weblink
@@ -20,7 +23,8 @@ class HomeButton extends StatelessWidget {
     super.key,
     required this.buttonimage,
     required this.buttontitle,
-    required this.buttonsubtitle,
+    //required this.buttonsubtitle,
+    required this.restaurantStatus,
     required this.dininghall,
   });
 
@@ -102,9 +106,28 @@ class HomeButton extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              //----------------------
+                              //Open and closed status
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0, 10, 0, 0),
+                                child: Center(
+                                  child: Container(
+                                    alignment: Alignment.bottomCenter,
+                                    width: 180,
+                                    height: 8,
+                                    decoration: BoxDecoration(
+                                      color: restaurantStatus,
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(20),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                               //------------------------
                               //Button subtitle
-                              Padding(
+                              /*Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0, 4, 8, 0),
                                 child: Center(
@@ -118,7 +141,7 @@ class HomeButton extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ),
+                              ),*/
                             ],
                           )),
                     )

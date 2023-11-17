@@ -52,6 +52,60 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+
+    // Define the opening and closing hours as input parameters
+    DateTime openingTimeBreakfast =
+        DateTime(now.year, now.month, now.day, 7, 0);
+    DateTime closingTimeBreakfast =
+        DateTime(now.year, now.month, now.day, 10, 30);
+    DateTime openingTimeSlayter =
+        DateTime(now.year, now.month, now.day, 11, 05);
+    DateTime closingTimeSlayter =
+        DateTime(now.year, now.month, now.day, 22, 00);
+    DateTime openingTimeCurtis = DateTime(now.year, now.month, now.day, 11, 0);
+    DateTime closingTimeCurtis = DateTime(now.year, now.month, now.day, 20, 00);
+    DateTime openingTimeHuffman =
+        DateTime(now.year, now.month, now.day, 11, 30);
+    DateTime closingTimeHuffman =
+        DateTime(now.year, now.month, now.day, 21, 00);
+    DateTime openingTimeSilvy = DateTime(now.year, now.month, now.day, 10, 30);
+    DateTime closingTimeSilvy = DateTime(now.year, now.month, now.day, 23, 00);
+    DateTime openingTimeNest = DateTime(now.year, now.month, now.day, 21, 00);
+    DateTime closingTimeNest = DateTime(now.year, now.month, now.day, 1, 00);
+
+    Color getRestaurantStatus(DateTime openingTime, DateTime closingTime) {
+      DateTime now = DateTime.now();
+      if (now.isAfter(openingTime) && now.isBefore(closingTime)) {
+        return Colors.green;
+      } else {
+        return Color.fromARGB(255, 199, 32, 48);
+      }
+    }
+
+    Color curtisStatus = Colors.orange;
+    Color huffmanStatus = Colors.orange;
+    Color slayterStatus = Colors.orange;
+    Color silvyStatus = Colors.orange;
+    Color nestStatus = Colors.orange;
+
+    if (now.isBefore(openingTimeCurtis)) {
+      curtisStatus =
+          getRestaurantStatus(openingTimeBreakfast, closingTimeBreakfast);
+      huffmanStatus =
+          getRestaurantStatus(openingTimeBreakfast, closingTimeBreakfast);
+      slayterStatus =
+          getRestaurantStatus(openingTimeBreakfast, closingTimeBreakfast);
+    } else if (now.isAfter(openingTimeCurtis)) {
+      curtisStatus = getRestaurantStatus(openingTimeCurtis, closingTimeCurtis);
+      huffmanStatus =
+          getRestaurantStatus(openingTimeHuffman, closingTimeHuffman);
+      slayterStatus =
+          getRestaurantStatus(openingTimeSlayter, closingTimeSlayter);
+    }
+    silvyStatus = getRestaurantStatus(openingTimeSilvy, closingTimeSilvy);
+    nestStatus = getRestaurantStatus(openingTimeNest, closingTimeNest);
+
     return Scaffold(
       backgroundColor: Colors.white,
       /******************/
@@ -94,7 +148,7 @@ class MyHomePage extends StatelessWidget {
       /******************/
       //     BODY
       /*****************/
-      body:const Center(
+      body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -104,21 +158,24 @@ class MyHomePage extends StatelessWidget {
               ),
               HomeButton(
                 buttontitle: 'Curtis Dining Hall',
-                buttonsubtitle: 'Healthy, Seasonal Comfort',
+                restaurantStatus: curtisStatus,
+                //buttonsubtitle: 'Healthy, Seasonal Comfort',
                 buttonimage: 'assets/images/Curtis.jpg',
                 dininghall:
                     'https://denison.cafebonappetit.com/cafe/curtis-cafe/',
               ),
               HomeButton(
                 buttontitle: 'Huffman Dining Hall',
-                buttonsubtitle: 'Fresh, Sustainable, Variety',
+                restaurantStatus: huffmanStatus,
+                //buttonsubtitle: 'Fresh, Sustainable, Variety',
                 buttonimage: 'assets/images/Huffman.jpg',
                 dininghall:
                     'https://denison.cafebonappetit.com/cafe/huffman-cafe/',
               ),
               HomeButton(
-                buttontitle: 'Slayters Market',
-                buttonsubtitle: 'Convenient, House made,\nBarista made Coffee',
+                buttontitle: 'Slayter Market',
+                restaurantStatus: slayterStatus,
+                //buttonsubtitle: 'Convenient, House Made,\nBarista Made Coffee',
                 buttonimage: 'assets/images/slayter.jpg',
                 dininghall:
                     'https://denison.cafebonappetit.com/cafe/slayter-market/',
@@ -128,15 +185,16 @@ class MyHomePage extends StatelessWidget {
               ),
               HomeButton(
                 buttontitle: 'Silverstein',
-                buttonsubtitle: 'Pizza, Sandwich,\nFresh ingredients',
+                restaurantStatus: silvyStatus,
+                //buttonsubtitle: 'Pizza, Sandwich,\nFresh ingredients',
                 buttonimage: 'assets/images/silverstein.jpg',
                 dininghall:
                     'https://denison.cafebonappetit.com/cafe/silverstein/',
               ),
               HomeButton(
                 buttontitle: 'The Nest at the Roost',
-                buttonsubtitle:
-                    'Student-driven, Flatbreads, \nSandwich, Desserts',
+                restaurantStatus: nestStatus,
+                //buttonsubtitle: 'Student-driven, Flatbreads, \nSandwich, Desserts',
                 buttonimage: 'assets/images/nest.jpg',
                 dininghall:
                     'https://denison.cafebonappetit.com/cafe/the-roost/',

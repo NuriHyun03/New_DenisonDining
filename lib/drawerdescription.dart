@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Description extends StatelessWidget {
   const Description({
@@ -58,7 +59,23 @@ class Description extends StatelessWidget {
               color: Colors.blue,
             ),
           ),
-          onTap: () {
+          onTap: () async {
+            String email = Uri.encodeComponent("hyun_n1@denison.edu");
+            Uri mail = Uri.parse("mailto:$email");
+            if (await launchUrl(mail)) {
+            } else {
+              Clipboard.setData(
+                const ClipboardData(text: 'hyun_n1@denison.edu'),
+              ).then((_) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Email Copied!'),
+                  ),
+                );
+              });
+            }
+          },
+          onLongPress: () {
             Clipboard.setData(
               const ClipboardData(text: 'hyun_n1@denison.edu'),
             ).then((_) {
@@ -82,7 +99,23 @@ class Description extends StatelessWidget {
               color: Colors.blue,
             ),
           ),
-          onTap: () {
+          onTap: () async {
+            String email = Uri.encodeComponent("jeong_j1@denison.edu");
+            Uri mail = Uri.parse("mailto:$email");
+            if (await launchUrl(mail)) {
+            } else {
+              Clipboard.setData(
+                const ClipboardData(text: 'jeong_j1@denison.edu'),
+              ).then((_) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Email Copied!'),
+                  ),
+                );
+              });
+            }
+          },
+          onLongPress: () {
             Clipboard.setData(
               const ClipboardData(text: 'jeong_j1@denison.edu'),
             ).then((_) {
@@ -106,7 +139,23 @@ class Description extends StatelessWidget {
               color: Colors.blue,
             ),
           ),
-          onTap: () {
+          onTap: () async {
+            String email = Uri.encodeComponent("lee_e3@denison.edu");
+            Uri mail = Uri.parse("mailto:$email");
+            if (await launchUrl(mail)) {
+            } else {
+              Clipboard.setData(
+                const ClipboardData(text: 'lee_e3@denison.edu'),
+              ).then((_) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Email Copied!'),
+                  ),
+                );
+              });
+            }
+          },
+          onLongPress: () {
             Clipboard.setData(
               const ClipboardData(text: 'lee_e3@denison.edu'),
             ).then((_) {
@@ -130,7 +179,23 @@ class Description extends StatelessWidget {
               color: Colors.blue,
             ),
           ),
-          onTap: () {
+          onTap: () async {
+            String email = Uri.encodeComponent("youn_j1@denison.edu");
+            Uri mail = Uri.parse("mailto:$email");
+            if (await launchUrl(mail)) {
+            } else {
+              Clipboard.setData(
+                const ClipboardData(text: 'youn_j1@denison.edu'),
+              ).then((_) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Email Copied!'),
+                  ),
+                );
+              });
+            }
+          },
+          onLongPress: () {
             Clipboard.setData(
               const ClipboardData(text: 'youn_j1@denison.edu'),
             ).then((_) {
